@@ -48,14 +48,11 @@
     "fieldTypes" : [],
     "tasks" : [
         {
-            "uniqueName" : "agent_transfer",
+            "uniqueName" : "credit_card",
             "actions" : {
                 "actions" : [
                     {
-                        "say" : "You will be transfer to an agent."
-                    },
-                    {
-                        "remember" : { "AgnetTransfer" : "true" }
+                        "redirect" : "https://payment-method-4230.twil.io/index"
                     }
                 ]
             },
@@ -63,35 +60,35 @@
             "samples" : [
                 {
                     "language" : "en-US",
-                    "taggedText" : "i want to talk to a human"
+                    "taggedText" : "credit"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "i want to talk to somebody"
+                    "taggedText" : "card"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "I want to talk to an agent"
+                    "taggedText" : "credit card"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "representative"
+                    "taggedText" : "creditcard"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "agent"
+                    "taggedText" : "debit card"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "Agent"
+                    "taggedText" : "debit"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "collector"
+                    "taggedText" : "use credit card"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "collectors"
+                    "taggedText" : "use debit card"
                 }
             ]
         },
@@ -100,10 +97,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "say" : "ok, we will take your payment using eCheck by phone."
-                    },
-                    {
-                        "remember" : { "PmtType" : "2" }
+                        "redirect" : "https://payment-method-4230.twil.io/index"
                     }
                 ]
             },
@@ -111,19 +105,7 @@
             "samples" : [
                 {
                     "language" : "en-US",
-                    "taggedText" : "cheque"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "echeck"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "check"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "ach"
+                    "taggedText" : "bank"
                 },
                 {
                     "language" : "en-US",
@@ -131,19 +113,28 @@
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "bank"
+                    "taggedText" : "ach"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "check"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "echeck"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "cheque"
                 }
             ]
         },
         {
-            "uniqueName" : "credit_card",
+            "uniqueName" : "agent_transfer",
             "actions" : {
                 "actions" : [
                     {
-                        "say" : "ok, we will take your payment by credit or debit card"
-                    },
-                    {
-                        "remember" : { "PmtType" : "1" }
+                        "redirect" : "https://payment-method-4230.twil.io/index"
                     }
                 ]
             },
@@ -151,68 +142,37 @@
             "samples" : [
                 {
                     "language" : "en-US",
-                    "taggedText" : "use debit card"
+                    "taggedText" : "collectors"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "use credit card"
+                    "taggedText" : "collector"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "debit"
+                    "taggedText" : "Agent"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "debit card"
+                    "taggedText" : "agent"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "creditcard"
+                    "taggedText" : "representative"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "credit card"
+                    "taggedText" : "I want to talk to an agent"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "card"
+                    "taggedText" : "i want to talk to somebody"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "credit"
+                    "taggedText" : "i want to talk to a human"
                 }
             ]
-        },
-        {
-            "uniqueName" : "fallback",
-            "actions" : {
-                "actions" : [
-                    {
-                        "remember" : { "AgnetTransfer" : "true" }
-                    },
-                    {
-                        "redirect" : {
-                            "method" : "POST",
-                            "uri" : "https://payment-method-4230.twil.io/fallback"
-                        }
-                    }
-                ]
-            },
-            "fields" : [],
-            "samples" : []
-        },
-        {
-            "uniqueName" : "collect_fallback",
-            "actions" : {
-                "actions" : [
-                    {
-                        "say" : "Looks like I'm having trouble. Apologies for that. Let's start again, how can I help you today?"
-                    },
-                    { "listen" : true }
-                ]
-            },
-            "fields" : [],
-            "samples" : []
         },
         {
             "uniqueName" : "greeting",
@@ -234,9 +194,37 @@
                     "taggedText" : "Hi"
                 }
             ]
+        },
+        {
+            "uniqueName" : "collect_fallback",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : "Looks like I'm having trouble. Apologies for that. Let's start again, how can I help you today?"
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "fallback",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : {
+                            "method" : "POST",
+                            "uri" : "https://payment-method-4230.twil.io/index"
+                        }
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
         }
     ],
     "modelBuild" : {
-        "uniqueName" : "Payment_Method_MainIVR_4-2-2021_11.42.04am"
+        "uniqueName" : "Payment_Method_MainIVR_10-2-2021_3.12.18am"
     }
 }
