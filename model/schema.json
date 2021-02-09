@@ -193,7 +193,7 @@
                     {
                         "redirect" : {
                             "method" : "POST",
-                            "uri" : "https://payment-method-6228-dev.twil.io/fallback"
+                            "uri" : "https://paymentmethod-4955-dev.twil.io/fallback"
                         }
                     }
                 ]
