@@ -52,7 +52,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://payment-method-4230.twil.io/index"
+                        "redirect" : "https://paymentmethod-3892-dev.twil.io/index"
                     }
                 ]
             },
@@ -97,7 +97,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://payment-method-4230.twil.io/index"
+                        "redirect" : "https://paymentmethod-3892-dev.twil.io/index"
                     }
                 ]
             },
@@ -134,7 +134,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://payment-method-4230.twil.io/index"
+                        "redirect" : "https://paymentmethod-3892-dev.twil.io/index"
                     }
                 ]
             },
@@ -215,7 +215,7 @@
                     {
                         "redirect" : {
                             "method" : "POST",
-                            "uri" : "https://payment-method-4230.twil.io/index"
+                            "uri" : "https://paymentmethod-3892-dev.twil.io/index"
                         }
                     }
                 ]
