@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      # Runs a single command using the runners shell
+      # Runs a single command using the runners shell.
       - name: Install dependencies for the twilio function
         env:
          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID_FlexFACS }}
