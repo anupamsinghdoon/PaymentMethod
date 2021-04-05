@@ -1,0 +1,230 @@
+{
+    "friendlyName" : "Payment_Method_MainIVR",
+    "logQueries" : true,
+    "uniqueName" : "Payment_Method_MainIVR",
+    "defaults" : {
+        "defaults" : {
+            "assistant_initiation" : "task://greeting",
+            "fallback" : "task://fallback",
+            "collect" : {
+                "validate_on_failure" : "task://collect_fallback"
+            }
+        }
+    },
+    "styleSheet" : {
+        "style_sheet" : {
+            "collect" : {
+                "validate" : {
+                    "on_failure" : {
+                        "repeat_question" : false,
+                        "messages" : [
+                            {
+                                "say" : {
+                                    "speech" : "I didn't get that. What did you say?"
+                                }
+                            },
+                            {
+                                "say" : {
+                                    "speech" : "I still didn't catch that. Please repeat."
+                                }
+                            },
+                            {
+                                "say" : {
+                                    "speech" : "Let's try one last time. Say it again please."
+                                }
+                            }
+                        ]
+                    },
+                    "on_success" : { "say" : { "speech" : "" } },
+                    "max_attempts" : 4
+                }
+            },
+            "voice" : {
+                "say_voice" : "Polly.Joanna-Neural"
+            },
+            "name" : ""
+        }
+    },
+    "fieldTypes" : [],
+    "tasks" : [
+        {
+            "uniqueName" : "credit_card",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://paymentmethod-7730-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "credit"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "card"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "credit card"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "creditcard"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "debit card"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "debit"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "use credit card"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "use debit card"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "bank",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://paymentmethod-7730-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "bank"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "ACH"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "ach"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "check"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "echeck"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "cheque"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "agent_transfer",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://paymentmethod-7730-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "collectors"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "collector"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Agent"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "agent"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "representative"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I want to talk to an agent"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i want to talk to somebody"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i want to talk to a human"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "greeting",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : "If you want to use your credit or debit card say, credit card or debit card., , if you want to use check by phone say check or bank."
+                    },
+                    {
+                        "remember" : { "task_fail_counter" : 0 }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Hi"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "collect_fallback",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : "Looks like I'm having trouble. Apologies for that. Let's start again, how can I help you today?"
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "fallback",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : {
+                            "method" : "POST",
+                            "uri" : "https://paymentmethod-7730-dev.twil.io/index"
+                        }
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        }
+    ],
+    "modelBuild" : {
+        "uniqueName" : "Payment_Method_MainIVR_10-2-2021_3.12.18am"
+    }
+}
